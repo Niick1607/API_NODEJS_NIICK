@@ -27,7 +27,7 @@ npm i express nodemon dotenv
 nano .gitignore
 ```
 
-#### Adicionar no arquivo .gitignore o nome da pasta criada após a instalação dos pacotes
+#### Adicionar no arquivo .gitignore
 ```
 node_modules
 ```
@@ -37,7 +37,7 @@ node_modules
 mkdir src
 ```
 
-#### Criar arquivos dentro da pasta src
+#### Criar arquivos na pasta src
 ```
 touch src/app.js
 ```
@@ -62,7 +62,7 @@ mkdir src/routes
 * Pasta para gerenciar as rotas da API
 
 
-#### Criar arquivo .env na raiz do projeto
+#### Criar arquivo .env na raiz
 
 ```
 nano .env
@@ -91,7 +91,7 @@ nano .env.example
 PORT = 
 ```
 
-#### Abrir o arquivo app.js e digitar o código
+#### Abrir o arquivo app.js e colocar
 ```
 const express = require('express');
 ```
@@ -112,7 +112,7 @@ app.set('port', process.env.PORT || 3333);
 module.exports = app;
 ```
 
-#### Abrir o arquivo server.js e digitar os códigos
+#### Abrir o arquivo server.js e colocar
 ```
 const app = require('./app');
 ```
@@ -127,13 +127,57 @@ app.listen(port, () => {
 });
 ```
 
-#### Abrir o arquivo package.json e alterar a chave 'scripts'
-* Substituir o comando 'test' pelo comando 'start' na linha 7
+#### Abrir o arquivo package.json e alterar 'scripts'
+* Substituir 'test' por 'start' na linha 7
 ```
 "start":"nodemon src/server.js"
 ```
 
-#### Rodar o comando no termial
+#### Rodar
 ```
 npm run start
+```
+
+
+
+#### Criar arquivo dentro da pasta routes
+```
+touch src/routes/rotas.js
+```
+* Responsável pelas rotas que serão acessadas na API
+
+#### No rotas.js e colocar
+```
+// Importar o Router do express
+const { Router } = require('express');
+
+// Instanciar o Router na variável router
+const router = Router();
+
+router.get('/listar', (request, response) => {
+    response.send('Método GET: listar informações');
+});
+router.post('/cadastrar', (request, response) => {
+    response.send('Método POST: salvar informações');
+});
+router.put('/user/:id', (request, response) => {
+    response.send('Método PUT: atualizar informações');
+});
+router.delete('/user/:id', (request, response) => {
+    response.send('Método DELETE: remover informações');
+});
+
+module.exports = router;
+```
+
+#### Abrir o arquivo app.js e colocar
+* Importar o arquivo de rotas nas configurações da API
+```
+const router = require('./routes/rotas');
+```
+
+* Para habilitar as rotas na aplicação
+* Deve ser inserida depois da criação da variável app
+```
+app.use('/api', router);
 ```
