@@ -1,5 +1,7 @@
+// Para importar o modulo de Router do express
 const { Router } = require('express');
 
+// Instanciar o Router na router
 const router = Router();
 
 router.get('/listar', (request, response) => {
