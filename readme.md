@@ -137,4 +137,21 @@ app.listen(port, () => {
 ```
 npm run start
 ```
+<hr>
 
+## Insomnia
+
+Criando sua API, é preciso testar as rotas que vão ser criadas no projeto, da pra usar o próprio navegador, mas só pode enviar requisições do tipo 'get', e os dados que voltam não são já formatados. Pra usar as outras requisições como post, put e delete, precisa usar softwares de terceiros, como o insomnia. Ele open source desenvolvido em javascript. Ele é um testador de rotas pra APIs, como os outros (postman e etc...), só colocar a url da API e o caminho da rota
+
+#### Agora abra o insomnia no seu computador
+* Criar um novo projeto clicando no ícone de setinha
+* Dar um nome para esse projeto
+* Depois, criar uma coleção de requisições para esse projeto
+* Cliqua em 'New Collection'
+* Vamos criar a primeira requisição para a API clicando no botão 'New HTTP Request', indicado na tela a seguir
+* Da pra add outras requisições clicando no ícone
+* Por padrão a requisição é criada no método GET
+* Da pra alterar o método da requisição clicando no íconde de seta para baixo
+* Agora só precisa colocar a url da nossa API com a porta que definimos (http://localhost:3000) e as rotas(/api/listar) que criadas no arquivo rotas.js
+* Após validar que a API ta rodando, executar a ação da rota clicando no botão 'Send'
+* O Insomnia deve retornar com a mensagem descrita no método GET do nosso arquivo de rotas
